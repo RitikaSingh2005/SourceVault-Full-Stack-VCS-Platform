@@ -155,7 +155,22 @@
   .signup-button {
     width: 250px;
   }
-  
+/* --- Fix: Visibility and Colors --- */
+
+.PageHeader-Title {
+    color: #000000 !important;
+}
+
+.login-box-wrapper p {
+    color: #333333; 
+}
+
+.login-box-wrapper a {
+    color: #00b4d8 !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
   @media screen and (max-width: 400px) {
     .login-box {
       width: 200px;
