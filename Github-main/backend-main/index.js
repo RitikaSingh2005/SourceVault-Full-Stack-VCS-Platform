@@ -1,125 +1,47 @@
 const express = require("express");
-const cors = require("cors"); // Pehle require karo
-const app = express();
-
-app.use(express.json()); // Phir use karo
-app.use(cors());
-
+const cors = require("cors");
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const http = require("http");
 const { Server } = require("socket.io");
+const bodyParser = require("body-parser");
 const mainRouter = require("./routes/main.router");
-// ... baaki require waali lines ...
 
-const yargs = require("yargs");
-const { hideBin } = require("yargs/helpers");
-
-const { initRepo } = require("./controllers/init");
-const { addRepo } = require("./controllers/add");
-const { commitRepo } = require("./controllers/commit");
-const { pushRepo } = require("./controllers/push");
-const { pullRepo } = require("./controllers/pull");
-const { revertRepo } = require("./controllers/revert");
-
+// Config load karo
 dotenv.config();
 
+const app = express();
+const port = process.env.PORT || 5000;
 
-yargs(hideBin(process.argv))
-  .command("start", "Starts a new server", {}, startServer)
-  .command("init", "Initialise a new repository", {}, initRepo)
-  .command(
-    "add <file>",
-    "Add a file to the repository",
-    (yargs) => {
-      yargs.positional("file", {
-        describe: "File to add to the staging area",
-        type: "string",
-      });
-    },
-    (argv) => {
-      addRepo(argv.file);
-    }
-  )
-  .command(
-    "commit <message>",
-    "Commit the staged files",
-    (yargs) => {
-      yargs.positional("message", {
-        describe: "Commit message",
-        type: "string",
-      });
-    },
-    (argv) => {
-      commitRepo(argv.message);
-    }
-  )
-  .command("push", "Push commits to S3", {}, pushRepo)
-  .command("pull", "Pull commits from S3", {}, pullRepo)
-  .command(
-    "revert <commitID>",
-    "Revert to a specific commit",
-    (yargs) => {
-      yargs.positional("commitID", {
-        describe: "Comit ID to revert to",
-        type: "string",
-      });
-    },
-    (argv) => {
-      revertRepo(argv.commitID);
-    }
-  )
-  .demandCommand(1, "You need at least one command")
-  .help().argv;
-
-function startServer() {
-  const port = process.env.PORT || 5000;
-  httpServer.listen(port, () => {
-    console.log(`Server is running on PORT ${port}`);
-});
-  
+// Middleware
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(cors({ origin: "*" }));
 
-  // index.js mein line 76 ko aise replace karo:
-console.log("ENV Variables Check:", process.env.MONGODB_URI);
-const mongoURI = process.env.MONGODB_URI;
+// Routes
+app.use("/", mainRouter);
 
-  mongoose
-    .connect(mongoURI)
-    .then(() => console.log("MongoDB connected!"))
-    .catch((err) => console.error("Unable to connect : ", err));
+const httpServer = http.createServer(app);
 
-  app.use(cors({ origin: "*" }));
+// Socket.io setup
+const io = new Server(httpServer, {
+    cors: { origin: "*", methods: ["GET", "POST"] }
+});
 
-  app.use("/", mainRouter);
-
-  let user = "test";
-  const httpServer = http.createServer(app);
-  const io = new Server(httpServer, {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"],
-    },
-  });
-
-  io.on("connection", (socket) => {
+io.on("connection", (socket) => {
     socket.on("joinRoom", (userID) => {
-      user = userID;
-      console.log("=====");
-      console.log(user);
-      console.log("=====");
-      socket.join(userID);
+        socket.join(userID);
+        console.log("User joined:", userID);
     });
-  });
+});
 
-  const db = mongoose.connection;
+// Database Connection
+const mongoURI = process.env.MONGODB_URI;
+mongoose.connect(mongoURI)
+    .then(() => console.log("MongoDB connected!"))
+    .catch((err) => console.error("Unable to connect:", err));
 
-  db.once("open", async () => {
-    console.log("CRUD operations called");
-    // CRUD operations
-  });
-
-  httpServer.listen(port, () => {
+// Server Start
+httpServer.listen(port, () => {
     console.log(`Server is running on PORT ${port}`);
-  });
-}
+});
