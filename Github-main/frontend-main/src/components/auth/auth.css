@@ -173,3 +173,22 @@
       width: 200px;
     }
   }
+/* --- Fix: Visibility and Colors for Headings and Links --- */
+
+/* Ye 'Sign In' ya 'Sign Up' heading ko black karega */
+.PageHeader-Title {
+    color: #000000 !important; 
+    font-weight: 800 !important;
+}
+
+/* Ye 'New to SourceVault' text ko black aur bold karega */
+.login-box-wrapper p, 
+.login-box-wrapper a {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+/* Optional: Agar input fields ke andar ka text bhi dark chahiye */
+.input {
+    color: #ffffff !important; /* Ye white hi rahe taaki dark input box mein dikhe */
+}
