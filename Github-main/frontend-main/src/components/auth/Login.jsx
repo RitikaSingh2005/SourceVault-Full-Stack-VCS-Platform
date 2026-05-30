@@ -45,10 +45,17 @@ const Login = () => {
     }
   };
 
-  return (
+ return (
     <div className="login-wrapper">
-      <div className="login-logo-container">
-<img src="https://i.ibb.co/MxGTyB4q/image.png" alt="SourceVault Logo" style={{ height: '42px', width: 'auto', margin: '0 auto 12px auto', display: 'block' }} />        <div className="login-heading">
+      <div className="login-box-wrapper">
+        <div className="login-heading">
+          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+            <img 
+              src="https://i.ibb.co/MxGTyB4q/image.png" 
+              alt="SourceVault Logo" 
+              style={{ height: '42px', width: 'auto', display: 'inline-block' }} 
+            />
+          </div>
           <Box sx={{ padding: 1 }}>
             <PageHeader>
               <PageHeader.TitleArea variant="large">
@@ -57,6 +64,7 @@ const Login = () => {
             </PageHeader>
           </Box>
         </div>
+
         <div className="login-box">
           <div>
             <label className="label">Email address</label>
