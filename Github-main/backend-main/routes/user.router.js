@@ -1,4 +1,9 @@
 const express = require("express");
+const router = express.Router();
+const { signupController } = require("../controllers/userController"); // Apne folder path ke hisaab se check kar lena
+router.post("/signup", signupController);
+
+module.exports = router;
 const userController = require("../controllers/userController");
 
 const userRouter = express.Router();
