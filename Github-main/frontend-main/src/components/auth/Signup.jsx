@@ -23,11 +23,11 @@ const Signup = () => {
     try {
       setLoading(true);
       // Aisa hona chahiye:
-const response = await axios.post("https://sourcevault-backend.onrender.com/signup", {
+const response = axios.post("https://sourcevault-backend.onrender.com/signup", {
     username: username,
     email: email,
     password: password
-});
+})
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
