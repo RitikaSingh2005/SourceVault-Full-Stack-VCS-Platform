@@ -48,8 +48,7 @@ const Login = () => {
   return (
     <div className="login-wrapper">
       <div className="login-logo-container">
-<img src="https://i.ibb.co/MxGTyB4q/image.png" alt="SourceVault Logo" style={{ height: '42px', width: 'auto', margin: '0 auto 12px auto', display: 'block' }} />
-      <div className="login-box-wrapper">
+<img src="https://i.ibb.co/MxGTyB4q/image.png" alt="SourceVault Logo" style={{ height: '42px', width: 'auto', margin: '0 auto 12px auto', display: 'block' }} />      <div className="login-box-wrapper">
         <div className="login-heading">
           <Box sx={{ padding: 1 }}>
             <PageHeader>
