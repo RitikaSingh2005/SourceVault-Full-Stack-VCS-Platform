@@ -1,14 +1,15 @@
 const express = require("express");
+const cors = require("cors"); // Pehle require karo
 const app = express();
-app.use(express.json()); // <--- Ye line add karo, ye bahut zaroori hai!
+
+app.use(express.json()); // Phir use karo
 app.use(cors());
-const cors = require("cors");
 
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const http = require("http");
 const { Server } = require("socket.io");
 const mainRouter = require("./routes/main.router");
+// ... baaki require waali lines ...
 
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
