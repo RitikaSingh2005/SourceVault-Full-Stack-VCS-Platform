@@ -155,20 +155,21 @@
   .signup-button {
     width: 250px;
   }
-/* --- Fix: Visibility and Colors --- */
-
+/* Sign In heading ko solid black */
 .PageHeader-Title {
     color: #000000 !important;
 }
 
+/* "New to SourceVault" text ko thoda dark gray (taaki readable ho) */
 .login-box-wrapper p {
-    color: #333333; 
+    color: #1a1a1a !important;
 }
 
+/* "Create an account" link ko forcefully Light Blue */
 .login-box-wrapper a {
-    color: #00b4d8 !important;
-    text-decoration: none;
-    font-weight: bold;
+    color: #0077b6 !important; /* Thoda darker blue taaki dikhe */
+    text-decoration: underline; /* Link hai toh underline hona chahiye */
+    font-weight: 800 !important;
 }
 
   @media screen and (max-width: 400px) {
