@@ -23,6 +23,10 @@ const { revertRepo } = require("./controllers/revert");
 
 dotenv.config();
 
+const app = express();
+app.use(express.json());
+app.use(cors());
+
 yargs(hideBin(process.argv))
   .command("start", "Starts a new server", {}, startServer)
   .command("init", "Initialise a new repository", {}, initRepo)
