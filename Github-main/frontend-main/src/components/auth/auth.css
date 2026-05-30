@@ -1,19 +1,23 @@
 .login-wrapper {
   color: #f1f6fd;
-  /* vw/vh ki jagah 100% use karein taaki overflow na ho */
-  min-height: 100vh;
-  width: 100%; 
+  min-height: 100vh; /* Screen ki puri height cover karega */
+  width: 100%;       /* Width ko screen ke hisaab se set karega */
   font-family: "Asap", sans-serif;
   background: linear-gradient(135deg, #0f0c29, #302b63, #ff0080);
   background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Ye line scroll bar ko khatam kar degi */
-  overflow: hidden; 
-  /* Padding add karein taaki choti screen par chipke nahi */
-  padding: 20px;
-  box-sizing: border-box;
+  overflow: hidden;  /* Extra content ko hide karega, scroll bar nahi aayega */
+  margin: 0;         /* Default browser margin hatayein */
+  padding: 0;        /* Default padding hatayein */
+}
+
+/* Ye ensure karega ki card screen se bahar na nikle */
+.login-box-wrapper {
+  max-width: 90%; 
+  width: 400px;      /* Card ki ek fix width set karein */
+  margin: auto;
 }
   
   .login-logo-container {
