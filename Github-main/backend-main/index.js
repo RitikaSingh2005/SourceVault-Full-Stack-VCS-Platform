@@ -1,6 +1,8 @@
 const express = require("express");
-const dotenv = require("dotenv");
+const app = express();
 const cors = require("cors");
+app.use(express.json()); // YE LINE ZAROORI HAI
+app.use(cors());
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const http = require("http");
