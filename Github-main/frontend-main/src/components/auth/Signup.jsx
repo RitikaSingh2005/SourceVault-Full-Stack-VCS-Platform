@@ -22,7 +22,7 @@ const Signup = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("https://sourcevault-backend.onrender.com", {
+      const res = await axios.post("https://sourcevault-backend.onrender.com/api/signup", {
         email: email,
         password: password,
         username: username,
