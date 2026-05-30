@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Signup = () => {
-    // Keep your original state structure
+    // 1. Form dikhana hai ya nahi, iske liye state
+    const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -16,47 +17,35 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Using the full URL to reach your Render backend
             const response = await axios.post("https://sourcevault-backend.onrender.com/signup", formData);
             alert("Account created successfully!");
-            console.log("Response:", response.data);
         } catch (error) {
-            console.error("Signup error:", error);
-            alert("Error creating account. Please try again.");
+            console.error(error);
+            alert("Error creating account.");
         }
     };
 
     return (
         <div className="signup-container">
-            {/* YOUR ORIGINAL UI ELEMENTS GO HERE */}
-            <h2>Create New Account</h2>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    name="username" 
-                    placeholder="Username" 
-                    value={formData.username} 
-                    onChange={handleChange} 
-                    required 
-                />
-                <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="Email" 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    required 
-                />
-                <input 
-                    type="password" 
-                    name="password" 
-                    placeholder="Password" 
-                    value={formData.password} 
-                    onChange={handleChange} 
-                    required 
-                />
-                <button type="submit">Submit</button>
-            </form>
+            {/* Yahan tumhari original styling/content rahega */}
+            <h2>Welcome to SourceVault</h2>
+
+            {/* 2. Agar showForm 'false' hai, toh button dikhao */}
+            {!showForm && (
+                <button onClick={() => setShowForm(true)}>
+                    Create New Account
+                </button>
+            )}
+
+            {/* 3. Agar showForm 'true' hai, tabhi form dikhao */}
+            {showForm && (
+                <form onSubmit={handleSubmit}>
+                    <input name="username" placeholder="Username" onChange={handleChange} required />
+                    <input name="email" type="email" placeholder="Email" onChange={handleChange} required />
+                    <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+                    <button type="submit">Submit Details</button>
+                </form>
+            )}
         </div>
     );
 };
