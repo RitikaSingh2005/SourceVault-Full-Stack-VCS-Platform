@@ -1,14 +1,19 @@
 .login-wrapper {
   color: #f1f6fd;
+  /* vw/vh ki jagah 100% use karein taaki overflow na ho */
   min-height: 100vh;
-  width: 100vw;
+  width: 100%; 
   font-family: "Asap", sans-serif;
-  /* Ye gradient background hai: dark blue, purple, aur pink ka combination */
   background: linear-gradient(135deg, #0f0c29, #302b63, #ff0080);
   background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Ye line scroll bar ko khatam kar degi */
+  overflow: hidden; 
+  /* Padding add karein taaki choti screen par chipke nahi */
+  padding: 20px;
+  box-sizing: border-box;
 }
   
   .login-logo-container {
