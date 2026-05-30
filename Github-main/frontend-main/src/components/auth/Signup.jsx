@@ -44,9 +44,13 @@ const Signup = () => {
 
   return (
     <div className="login-wrapper">
-      <div className="login-logo-container">
-        <img className="logo-login" src={logo} alt="Logo" />
-      </div>
+      <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+              <img 
+                src="https://i.ibb.co/MxGTyB4q/image.png" 
+                alt="SourceVault Logo" 
+                style={{ height: '65px', width: 'auto', display: 'inline-block', marginTop: '20px' }} 
+              />
+            </div>
 
       <div className="login-box-wrapper">
         <div className="login-heading">
