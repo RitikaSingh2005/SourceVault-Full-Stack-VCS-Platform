@@ -74,7 +74,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 
   // index.js mein line 76 ko aise replace karo:
-const mongoURI = "mongodb+srv://ritika:15339160@cluster0.s5ftuok.mongodb.net/?appName=Cluster0";
+console.log("ENV Variables Check:", process.env.MONGODB_URI);
+const mongoURI = process.env.MONGODB_URI;
 
   mongoose
     .connect(mongoURI)
