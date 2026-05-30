@@ -1,23 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Wrapper: Poori screen ki height aur width lega */
 .login-wrapper {
-  color: #f1f6fd;
-  min-height: 100vh; /* Screen ki puri height cover karega */
-  width: 100%;       /* Width ko screen ke hisaab se set karega */
-  font-family: "Asap", sans-serif;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #ff0080);
-  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;  /* Extra content ko hide karega, scroll bar nahi aayega */
-  margin: 0;         /* Default browser margin hatayein */
-  padding: 0;        /* Default padding hatayein */
+  background: linear-gradient(135deg, #0f0c29, #302b63, #ff0080);
+  background-attachment: fixed;
+  overflow: hidden; 
 }
 
 /* Ye ensure karega ki card screen se bahar na nikle */
 .login-box-wrapper {
-  max-width: 90%; 
-  width: 400px;      /* Card ki ek fix width set karein */
-  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05); /* Halki shine */
 }
   
   .login-logo-container {
@@ -39,13 +46,14 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  /* Glassmorphism effect */
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05); /* Transparent glass look */
+  backdrop-filter: blur(10px);          /* Shine/Blur effect */
   padding: 40px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(255, 0, 128, 0.3); /* Yahan se purple glow aayega */
+  box-shadow: 0 8px 32px 0 rgba(255, 0, 128, 0.3); /* Purple glow */
+  width: 90%;       /* Full width cover karega */
+  max-width: 450px; /* Lekin bahut zyada nahi phailaiga */
 }
   
   .login-box {
