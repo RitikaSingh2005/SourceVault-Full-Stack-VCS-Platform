@@ -44,24 +44,25 @@ const Signup = () => {
 
   return (
     <div className="login-wrapper">
-      <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-              <img 
-                src="https://i.ibb.co/MxGTyB4q/image.png" 
-                alt="SourceVault Logo" 
-                style={{ height: '65px', width: 'auto', display: 'inline-block', marginTop: '20px' }} 
-              />
-            </div>
-
-      <div className="login-box-wrapper">
-        <div className="login-heading">
-          <Box sx={{ padding: 1 }}>
-            <PageHeader>
-              <PageHeader.TitleArea variant="large">
-                <PageHeader.Title>Sign Up</PageHeader.Title>
-              </PageHeader.TitleArea>
-            </PageHeader>
-          </Box>
+    <div className="login-box-wrapper">
+      <div className="login-heading">
+        {/* Logo ab box ke andar hai */}
+        <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+          <img 
+            src="https://i.ibb.co/MxGTyB4q/image.png" 
+            alt="SourceVault Logo" 
+            style={{ height: '65px', width: 'auto', display: 'inline-block', marginTop: '20px' }} 
+          />
         </div>
+        
+        <Box sx={{ padding: 1 }}>
+          <PageHeader>
+            <PageHeader.TitleArea variant="large">
+              <PageHeader.Title>Sign Up</PageHeader.Title>
+            </PageHeader.TitleArea>
+          </PageHeader>
+        </Box>
+      </div>
 
         <div className="login-box">
           <div>
