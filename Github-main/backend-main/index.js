@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
-app.use(express.json()); // YE LINE ZAROORI HAI
+app.use(express.json()); // <--- Ye line add karo, ye bahut zaroori hai!
 app.use(cors());
+const cors = require("cors");
+
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const http = require("http");
