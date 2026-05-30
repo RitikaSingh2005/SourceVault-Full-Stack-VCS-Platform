@@ -1,18 +1,14 @@
 const express = require("express");
+const userController = require("../controllers/userController"); 
+
 const router = express.Router();
-const { signupController } = require("../controllers/userController"); // Apne folder path ke hisaab se check kar lena
-router.post("/signup", signupController);
+
+// Sirf ye lines rakhein:
+router.post("/signup", userController.signup);
+router.post("/login", userController.login);
+router.get("/allUsers", userController.getAllUsers);
+router.get("/userProfile/:id", userController.getUserProfile);
+router.put("/updateProfile/:id", userController.updateUserProfile);
+router.delete("/deleteProfile/:id", userController.deleteUserProfile);
 
 module.exports = router;
-const userController = require("../controllers/userController");
-
-const userRouter = express.Router();
-
-userRouter.get("/allUsers", userController.getAllUsers);
-userRouter.post("/signup", userController.signup);
-userRouter.post("/login", userController.login);
-userRouter.get("/userProfile/:id", userController.getUserProfile);
-userRouter.put("/updateProfile/:id", userController.updateUserProfile);
-userRouter.delete("/deleteProfile/:id", userController.deleteUserProfile);
-
-module.exports = userRouter;
