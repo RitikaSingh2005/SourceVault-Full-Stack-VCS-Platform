@@ -50,10 +50,10 @@ const Login = () => {
       <div className="login-box-wrapper">
         <div className="login-heading">
           <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-            <img 
+           <img 
               src="https://i.ibb.co/MxGTyB4q/image.png" 
               alt="SourceVault Logo" 
-              style={{ height: '42px', width: 'auto', display: 'inline-block' }} 
+              style={{ height: '65px', width: 'auto', display: 'inline-block', marginTop: '20px' }} 
             />
           </div>
           <Box sx={{ padding: 1 }}>
