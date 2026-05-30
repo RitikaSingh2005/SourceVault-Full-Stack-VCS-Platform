@@ -69,9 +69,9 @@ yargs(hideBin(process.argv))
 function startServer() {
   const app = express();
   const port = process.env.PORT || 3000;
-
-  app.use(bodyParser.json());
-  app.use(express.json());
+  
+app.use(express.json());
+app.use(bodyParser.json());
 
   // index.js mein line 76 ko aise replace karo:
 const mongoURI = "mongodb+srv://ritika:15339160@cluster0.s5ftuok.mongodb.net/?appName=Cluster0";
